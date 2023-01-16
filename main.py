@@ -12,15 +12,15 @@ products = soup.find_all('div', class_ = 'product-card')
 
 class Main:
     def __init__(self):
-
-        for product in products:
-            title_product = product.find('a', class_ = 'product-card__title')
-            print(title_product.text)
-            old_price = product.find('div', class_ = 'v-pb')
-            if old_price.text != "":
-                print(old_price.text)
-            with open('products' , 'a', encoding='utf-8') as file:
-                file.write(f'{title_product.text}\n {old_price.text}\n')
+        for _ in range(1, 16):
+            for product in products:
+                title_product = product.find('a', class_ = 'product-card__title')
+                print(title_product.text)
+                old_price = product.find('div', class_ = 'v-pb')
+                if old_price.text != "":
+                    print(old_price.text)
+                with open('products' , 'a', encoding='utf-8') as file:
+                    file.write(f'{title_product.text}\n {old_price.text}\n')
 
 
 obj = Main()
